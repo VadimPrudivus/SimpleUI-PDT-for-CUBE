@@ -1,4 +1,6 @@
-import json
-
-def ws_handler(data=None, _files=None, _data=None):
-    print("Получили WS сообщение:", data)
+def ws_handler(hashMap, _files=None, _data=None):
+    message = hashMap.get("WebSocketMessage")
+    print("Got WS message:", message)
+    # Можно изменить hashMap, например отправить ответ:
+    hashMap.put("WebSocketSend", '{"event":"response_from_ui"}')
+    return hashMap
