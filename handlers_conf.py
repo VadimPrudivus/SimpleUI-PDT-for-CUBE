@@ -1,7 +1,13 @@
-def ws_handler(hashMap, _files=None, _data=None):
+def my_ws_handler(hashMap, _files=None, _data=None):
+    import json
     message = hashMap.get("WebSocketMessage")
-    print(message)
+    data = json.loads(message)
 
-    # Можно изменить hashMap, например отправить ответ:
-    #hashMap.put("WebSocketSend", '{"event":"response_from_ui"}')
-    #return hashMap
+    # Флаг, показывающий нужно ли отправлять ответ
+    send_response = (data.get("event")!= "response_from_ui")
+
+    if send_response:
+        response = {"event": "response_from_ui", "received": data}
+        hashMap.put("WebSocketSend", json.dumps(response))
+
+    return hashMap
