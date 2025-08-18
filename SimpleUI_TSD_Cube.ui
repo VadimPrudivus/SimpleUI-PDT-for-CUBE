@@ -111,7 +111,7 @@
             }
         ],
         "GitHubHandlers": "https://api.github.com/repos/VadimPrudivus/SimpleUI-PDT-for-CUBE/contents/handlers_conf.py",
-        "GitHubToken": "",
+        "GitHubToken": "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",
         "ConfigurationFileName": "",
         "agent": false,
         "ForegroundService": false,
