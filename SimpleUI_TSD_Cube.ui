@@ -1,7 +1,7 @@
 {
     "ClientConfiguration": {
-        "ConfigurationName": "Новая конфигурация",
-        "ConfigurationDescription": "Создание новой конфигурации",
+        "ConfigurationName": "Пример работы с SimpleUI",
+        "ConfigurationDescription": "Пример работы с SimpleUI, тестирование технологии",
         "ConfigurationVersion": "0.0.1",
         "Processes": [
             {
