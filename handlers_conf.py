@@ -6,7 +6,7 @@ def ws_connect(hashMap, _files=None, _data=None):
 def ws_handler(hashMap, _files=None, _data=None):
     message = hashMap.get("WebSocketMessage")
 
-    toast(message)
+    print(message)
     
     if message:
         try:
