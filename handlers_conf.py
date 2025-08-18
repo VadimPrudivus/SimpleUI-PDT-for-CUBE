@@ -3,7 +3,7 @@ import json
 def ws_connect(hashMap, _files=None, _data=None):
     return # пока просто ничего не делаем
 
-def ws_handler(hashMap, _files=None, _data=None):
+def ws_handler(hashMap):
     return # пока просто ничего не делаем
     
 #    if not hashMap: # хэндлить случай с пустым hashMap, чтобы не обращаться к None
