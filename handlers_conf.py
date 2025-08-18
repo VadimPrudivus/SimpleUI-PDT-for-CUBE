@@ -19,4 +19,6 @@ def ws_handler(hashMap, _files=None, _data=None):
     hashMap.put("user_id", data.get("id", ""))
     hashMap.put("user_name", data.get("name", ""))
 
+    hashMap.put("ReloadScreen", True)
+
     return hashMap
