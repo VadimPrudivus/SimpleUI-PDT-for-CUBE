@@ -16,7 +16,7 @@ def ws_handler(hashMap, _files=None, _data=None):
         print("Сообщение WebSocketMessage отсутствует или пусто")
 
     # Записываем в стек переменных SimpleUI
-        hashMap.put("user_id", data.get("id", ""))
-        hashMap.put("user_name", data.get("name", ""))
+    hashMap.put("user_id", data.get("id", ""))
+    hashMap.put("user_name", data.get("name", ""))
 
     return hashMap
