@@ -7,6 +7,10 @@ def ws_handler(hashMap, _files=None, _data=None):
     message = hashMap.get("WebSocketMessage")
     hashMap.put("toast", message)
 
+    #hashMap.put("RefreshScreen", "")
+
+    return hashMap
+
     if message:
         data = json.loads(message)
         #hashMap.put("toast", str(data))
@@ -20,6 +24,3 @@ def ws_handler(hashMap, _files=None, _data=None):
     else:
         hashMap.put("toast", "Сообщение WebSocketMessage отсутствует или пусто")
 
-    #hashMap.put("RefreshScreen", "")
-
-    return hashMap
