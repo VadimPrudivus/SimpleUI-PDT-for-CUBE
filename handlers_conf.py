@@ -17,7 +17,7 @@ def ws_handler(hashMap, _files=None, _data=None):
             hashMap.put("user_id", data.get("user_id", ""))
             hashMap.put("user_name", data.get("user_name", ""))
 
-            hashMap.put("toast", hashMap.get("user_name"))
+            #hashMap.put("toast", hashMap.get("user_name"))
     else:
         hashMap.put("toast", "Сообщение WebSocketMessage отсутствует или пусто")
 
