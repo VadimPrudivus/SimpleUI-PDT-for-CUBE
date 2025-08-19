@@ -13,9 +13,8 @@ def ws_handler(hashMap, _files=None, _data=None):
         # Проверяем, что это событие входа
         if data.get("event") == "login":
             hashMap.put("user_id", data.get("id", ""))
+            hashMap.put("user_name", "")
             hashMap.put("user_name", data.get("name", ""))
-
-            hashMap.put("refresh_time", str(time.time()))  # чтобы заставить обновить
 
             hashMap.put("toast", hashMap.get("user_name"))
     else:
