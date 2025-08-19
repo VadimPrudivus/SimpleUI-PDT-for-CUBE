@@ -1,7 +1,5 @@
 import json
 
-toast("handlers_conf")
-
 def ws_connect(hashMap, _files=None, _data=None):
     return hashMap # пока просто ничего не делаем
 
@@ -9,6 +7,8 @@ def ws_handler(hashMap, _files=None, _data=None):
     message = hashMap.get("WebSocketMessage")
 
     if message:
+        hashMap.put("toast", message)
+ 
         try:
             data = json.loads(message)
             
