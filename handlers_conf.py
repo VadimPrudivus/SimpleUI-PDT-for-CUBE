@@ -5,7 +5,7 @@ def ws_connect(hashMap, _files=None, _data=None):
 
 def ws_handler(hashMap, _files=None, _data=None):
     message = hashMap.get("WebSocketMessage")
-    hashMap.put("toast", "New "+message)
+    #hashMap.put("toast", "New "+message)
 
     if message:
         data = json.loads(message)
