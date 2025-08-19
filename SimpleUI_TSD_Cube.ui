@@ -2,7 +2,7 @@
     "ClientConfiguration": {
         "ConfigurationName": "Новая конфигурация",
         "ConfigurationDescription": "Создание новой конфигурации",
-        "ConfigurationVersion": "0.0.1",
+        "ConfigurationVersion": "0.0.2",
         "Processes": [
             {
                 "type": "Process",
@@ -26,6 +26,7 @@
                                         "Variable": "barcode",
                                         "type_s": "Поле ввода строка",
                                         "weight": "0",
+                                        "Value": "@barcode",
                                         "width_value": "match_parent",
                                         "height_value": "match_parent"
                                     },
@@ -49,6 +50,7 @@
                                         "Value": "@user_id",
                                         "type_s": "Надпись",
                                         "weight": "0",
+                                        "Variable": "user_id",
                                         "width_value": "match_parent",
                                         "height_value": "match_parent"
                                     },
@@ -59,6 +61,18 @@
                                         "width": "match_parent",
                                         "Value": "@user_name",
                                         "type_s": "Надпись",
+                                        "weight": "0",
+                                        "width_value": "match_parent",
+                                        "height_value": "match_parent"
+                                    },
+                                    {
+                                        "type": "EditTextNumeric",
+                                        "orientation": "vertical",
+                                        "height": "match_parent",
+                                        "width": "match_parent",
+                                        "Value": "@user_id",
+                                        "Variable": "user_id",
+                                        "type_s": "Поле ввода число",
                                         "weight": "0",
                                         "width_value": "match_parent",
                                         "height_value": "match_parent"
@@ -77,11 +91,12 @@
                                 "action": "run",
                                 "listener": "bt1",
                                 "type": "pythonscript",
-                                "method": "YmFyY29kZSA9IGhhc2hNYXAuZ2V0KCJiYXJjb2RlIikgb3IgIiIKaGFzaE1hcC5wdXQoIldlYlNvY2tldFNlbmQiLCAneyJsb2dpbiI6IicgKyBiYXJjb2RlICsgJyJ9Jyk=",
+                                "method": "YmMgPSBoYXNoTWFwLmdldCgiYmFyY29kZSIpCmhhc2hNYXAucHV0KCJXZWJTb2NrZXRTZW5kIiwgJ3siZXZlbnQiOiJsb2dpbiIsICJiYXJjb2RlIjoiJyArIGJjICsgJyJ9JykK",
                                 "postExecute": "",
                                 "alias": ""
                             }
-                        ]
+                        ],
+                        "noScroll": true
                     }
                 ],
                 "login_screen": true
@@ -93,12 +108,12 @@
             "vendor": "",
             "vendor_url": "",
             "vendor_password": "",
-            "handler_split_mode": false,
+            "handler_split_mode": true,
             "handler_url": "",
             "handler_password": ""
         },
         "host_uid": "f399868436ba45d79d59de994faeccd9",
-        "ConfigurationTags": "",
+        "ConfigurationTags": "Py,off-line",
         "CommonHandlers": [
             {
                 "event": "onLaunch",
@@ -111,8 +126,8 @@
             }
         ],
         "GitHubHandlers": "https://api.github.com/repos/VadimPrudivus/SimpleUI-PDT-for-CUBE/contents/handlers_conf.py",
-        "GitHubToken": "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",
-        "ConfigurationFileName": "",
+        "GitHubToken": "",
+        "ConfigurationFileName": "SimpleUI_TSD_Cube.ui",
         "agent": false,
         "ForegroundService": false,
         "StopForegroundServiceOnExit": false,
@@ -130,6 +145,7 @@
         "PelicanInit": "",
         "Layouts": [],
         "uid": "4e9ba74217c642b7b6c6ad2e90efb220",
-        "PyHandlers": "aW1wb3J0IGpzb24KCmRlZiB3c19jb25uZWN0KGhhc2hNYXAsIF9maWxlcz1Ob25lLCBfZGF0YT1Ob25lKToKICAgIHJldHVybiBoYXNoTWFwICMg0L/QvtC60LAg0L/RgNC+0YHRgtC+INC90LjRh9C10LPQviDQvdC1INC00LXQu9Cw0LXQvAoKZGVmIHdzX2hhbmRsZXIoaGFzaE1hcCwgX2ZpbGVzPU5vbmUsIF9kYXRhPU5vbmUpOgogICAgbWVzc2FnZSA9IGhhc2hNYXAuZ2V0KCJXZWJTb2NrZXRNZXNzYWdlIikKCiAgICBwcmludChtZXNzYWdlKQogICAgCiAgICBpZiBtZXNzYWdlOgogICAgICAgIHRyeToKICAgICAgICAgICAgZGF0YSA9IGpzb24ubG9hZHMobWVzc2FnZSkKICAgICAgICAgICAgIyDQtNCw0LvRjNGI0LUg0YDQsNCx0L7RgtCwINGBIGRhdGEKICAgICAgICBleGNlcHQgRXhjZXB0aW9uIGFzIGV4OgogICAgICAgICAgICAjINCb0L7Qs9C40YDRg9C10Lwg0L7RiNC40LHQutGDINC/0LDRgNGB0LjQvdCz0LAgSlNPTgogICAgICAgICAgICBwcmludChmItCe0YjQuNCx0LrQsCBKU09OOiB7ZXh9IikKICAgIGVsc2U6CiAgICAgICAgcHJpbnQoItCh0L7QvtCx0YnQtdC90LjQtSBXZWJTb2NrZXRNZXNzYWdlINC+0YLRgdGD0YLRgdGC0LLRg9C10YIg0LjQu9C4INC/0YPRgdGC0L4iKQoKICAgICMg0JfQsNC/0LjRgdGL0LLQsNC10Lwg0LIg0YHRgtC10Log0L/QtdGA0LXQvNC10L3QvdGL0YUgU2ltcGxlVUkKICAgIGhhc2hNYXAucHV0KCJ1c2VyX2lkIiwgZGF0YS5nZXQoImlkIiwgIiIpKQogICAgaGFzaE1hcC5wdXQoInVzZXJfbmFtZSIsIGRhdGEuZ2V0KCJuYW1lIiwgIiIpKQoKICAgIGhhc2hNYXAucHV0KCJSZWZyZXNoU2NyZWVuIiwgIiIpCgogICAgcmV0dXJuIGhhc2hNYXAK"
+        "PyHandlers": "aW1wb3J0IGpzb24KCmRlZiB3c19jb25uZWN0KGhhc2hNYXAsIF9maWxlcz1Ob25lLCBfZGF0YT1Ob25lKToKICAgIHJldHVybiBoYXNoTWFwICMg0L/QvtC60LAg0L/RgNC+0YHRgtC+INC90LjRh9C10LPQviDQvdC1INC00LXQu9Cw0LXQvAoKZGVmIHdzX2hhbmRsZXIoaGFzaE1hcCwgX2ZpbGVzPU5vbmUsIF9kYXRhPU5vbmUpOgogICAgbWVzc2FnZSA9IGhhc2hNYXAuZ2V0KCJXZWJTb2NrZXRNZXNzYWdlIikKICAgICNoYXNoTWFwLnB1dCgidG9hc3QiLCAiTmV3ICIrbWVzc2FnZSkKCiAgICBpZiBtZXNzYWdlOgogICAgICAgIGRhdGEgPSBqc29uLmxvYWRzKG1lc3NhZ2UpCiAgICAgICAgI2hhc2hNYXAucHV0KCJ0b2FzdCIsIHN0cihkYXRhKSkKCiAgICAgICAgIyDQn9GA0L7QstC10YDRj9C10LwsINGH0YLQviDRjdGC0L4g0YHQvtCx0YvRgtC40LUg0LLRhdC+0LTQsAogICAgICAgIGlmIGRhdGEuZ2V0KCJldmVudCIpID09ICJsb2dpbiI6CiAgICAgICAgICAgIGhhc2hNYXAucHV0KCJiYXJjb2RlIiwgZGF0YS5nZXQoImJhcmNvZGUiLCAiIikpCiAgICAgICAgICAgIGhhc2hNYXAucHV0KCJ1c2VyX2lkIiwgZGF0YS5nZXQoInVzZXJfaWQiLCAiIikpCiAgICAgICAgICAgIGhhc2hNYXAucHV0KCJ1c2VyX25hbWUiLCBkYXRhLmdldCgidXNlcl9uYW1lIiwgIiIpKQoKICAgICAgICAgICAgI2hhc2hNYXAucHV0KCJ0b2FzdCIsIGhhc2hNYXAuZ2V0KCJ1c2VyX25hbWUiKSkKICAgIGVsc2U6CiAgICAgICAgaGFzaE1hcC5wdXQoInRvYXN0IiwgItCh0L7QvtCx0YnQtdC90LjQtSBXZWJTb2NrZXRNZXNzYWdlINC+0YLRgdGD0YLRgdGC0LLRg9C10YIg0LjQu9C4INC/0YPRgdGC0L4iKQoKICAgIGhhc2hNYXAucHV0KCJSZWZyZXNoU2NyZWVuIiwgIlRydWUiKQoKICAgIHJldHVybiBoYXNoTWFwCg==",
+        "RunPython": true
     }
 }
