@@ -14,9 +14,12 @@ def ws_handler(hashMap, _files=None, _data=None):
             
             # Проверяем, что это событие входа
             if data.get("event") == "login":
-                # Записываем в стек переменных SimpleUI
-                hashMap.put("user_id", data.get("id", ""))
-                hashMap.put("user_name", data.get("name", ""))
+                if "error" in data:
+                    # Показываем сообщение об ошибке на экране ТСД
+                    print(f"Ошибка входа: {data['error']}")
+                else:
+                    hashMap.put("user_id", data.get("id", ""))
+                    hashMap.put("user_name", data.get("name", ""))
         
         except Exception as ex:
             # Логируем ошибку парсинга JSON
