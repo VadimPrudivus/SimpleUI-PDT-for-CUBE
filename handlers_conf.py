@@ -21,6 +21,6 @@ def ws_handler(hashMap, _files=None, _data=None):
     else:
         hashMap.put("toast", "Сообщение WebSocketMessage отсутствует или пусто")
 
-    hashMap.put("RefreshScreen", "")
+    hashMap.put("RefreshScreen", "True")
 
     return hashMap
