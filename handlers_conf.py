@@ -15,8 +15,8 @@ def ws_handler(hashMap, _files=None, _data=None):
             # Проверяем, что это событие входа
             if data.get("event") == "login":
                 if "error" in data:
-                    # Показываем сообщение об ошибке на экране ТСД
-                    print(f"Ошибка входа: {data['error']}")
+                    hashMap.put("user_id", 0)
+                    hashMap.put("user_name", "Error")
                 else:
                     hashMap.put("user_id", data.get("id", ""))
                     hashMap.put("user_name", data.get("name", ""))
