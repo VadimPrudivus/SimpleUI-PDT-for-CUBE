@@ -15,6 +15,8 @@ def ws_handler(hashMap, _files=None, _data=None):
             hashMap.put("user_id", data.get("id", ""))
             hashMap.put("user_name", data.get("name", ""))
 
+            hashMap.put("refresh_time", str(time.time()))  # чтобы заставить обновить
+
             hashMap.put("toast", hashMap.get("user_name"))
     else:
         hashMap.put("toast", "Сообщение WebSocketMessage отсутствует или пусто")
