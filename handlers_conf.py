@@ -9,7 +9,7 @@ def ws_handler(hashMap, _files=None, _data=None):
     if message:
         try:
             data = json.loads(message)
-            hashMap.put("toast", data)
+            hashMap.put("toast", str(data))
 
             # Проверяем, что это событие входа
             if data.get("event") == "login":
