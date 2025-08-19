@@ -5,10 +5,11 @@ def ws_connect(hashMap, _files=None, _data=None):
 
 def ws_handler(hashMap, _files=None, _data=None):
     message = hashMap.get("WebSocketMessage")
+    hashMap.put("toast", message)
 
     if message:
         data = json.loads(message)
-        hashMap.put("toast", str(data))
+        #hashMap.put("toast", str(data))
 
         # Проверяем, что это событие входа
         if data.get("event") == "login":
