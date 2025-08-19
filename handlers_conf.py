@@ -7,19 +7,14 @@ def ws_handler(hashMap, _files=None, _data=None):
     message = hashMap.get("WebSocketMessage")
 
     if message:
-        hashMap.put("toast", message)
- 
         try:
             data = json.loads(message)
-            
+            hashMap.put("toast", data)
+
             # Проверяем, что это событие входа
             if data.get("event") == "login":
-                if "error" in data:
-                    hashMap.put("user_id", 0)
-                    hashMap.put("user_name", "Error")
-                else:
-                    hashMap.put("user_id", data.get("id", ""))
-                    hashMap.put("user_name", data.get("name", ""))
+                hashMap.put("user_id", data.get("id", ""))
+                hashMap.put("user_name", data.get("name", ""))
         
         except Exception as ex:
             # Логируем ошибку парсинга JSON
