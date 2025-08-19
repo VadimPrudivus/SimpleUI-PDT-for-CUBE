@@ -11,16 +11,18 @@ def ws_handler(hashMap, _files=None, _data=None):
     if message:
         try:
             data = json.loads(message)
-            # дальше работа с data
+            
+            # Проверяем, что это событие входа
+            if data.get("event") == "login":
+                # Записываем в стек переменных SimpleUI
+                hashMap.put("user_id", data.get("id", ""))
+                hashMap.put("user_name", data.get("name", ""))
+        
         except Exception as ex:
             # Логируем ошибку парсинга JSON
             print(f"Ошибка JSON: {ex}")
     else:
         print("Сообщение WebSocketMessage отсутствует или пусто")
-
-    # Записываем в стек переменных SimpleUI
-    hashMap.put("user_id", data.get("id", ""))
-    hashMap.put("user_name", data.get("name", ""))
 
     hashMap.put("RefreshScreen", "")
 
