@@ -13,11 +13,15 @@ def ws_handler(hashMap, _files=None, _data=None):
 
         # Проверяем, что это событие входа
         if data.get("event") == "login":
+            id = int(data.get("user_id", "0"))
             hashMap.put("barcode", data.get("barcode", ""))
-            hashMap.put("user_id", data.get("user_id", ""))
+            hashMap.put("user_id", data.get("user_id", 0))
             hashMap.put("user_name", data.get("user_name", ""))
-
-            #hashMap.put("toast", hashMap.get("user_name"))
+            hashMap.put("toast", hashMap.get("user_name"))
+            if id
+                hashMap.put("ShowScreen", "LoginSucsess")
+            else
+                hashMap.put("ShowScreen", "LoginError")    
     else:
         hashMap.put("toast", "Сообщение WebSocketMessage отсутствует или пусто")
 
