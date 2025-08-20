@@ -2,7 +2,7 @@
     "ClientConfiguration": {
         "ConfigurationName": "Новая конфигурация",
         "ConfigurationDescription": "Создание новой конфигурации",
-        "ConfigurationVersion": "0.0.2",
+        "ConfigurationVersion": "0.0.3",
         "Processes": [
             {
                 "type": "Process",
@@ -19,30 +19,6 @@
                                 "width": "match_parent",
                                 "Elements": [
                                     {
-                                        "type": "EditTextText",
-                                        "orientation": "vertical",
-                                        "height": "match_parent",
-                                        "width": "match_parent",
-                                        "Variable": "barcode",
-                                        "type_s": "Поле ввода строка",
-                                        "weight": "0",
-                                        "Value": "@barcode",
-                                        "width_value": "match_parent",
-                                        "height_value": "match_parent"
-                                    },
-                                    {
-                                        "type": "Button",
-                                        "orientation": "vertical",
-                                        "height": "match_parent",
-                                        "width": "match_parent",
-                                        "Value": "Вход",
-                                        "Variable": "bt1",
-                                        "type_s": "Кнопка",
-                                        "weight": "0",
-                                        "width_value": "match_parent",
-                                        "height_value": "match_parent"
-                                    },
-                                    {
                                         "type": "TextView",
                                         "orientation": "vertical",
                                         "height": "match_parent",
@@ -50,7 +26,6 @@
                                         "Value": "@user_id",
                                         "type_s": "Надпись",
                                         "weight": "0",
-                                        "Variable": "user_id",
                                         "width_value": "match_parent",
                                         "height_value": "match_parent"
                                     },
@@ -64,15 +39,56 @@
                                         "weight": "0",
                                         "width_value": "match_parent",
                                         "height_value": "match_parent"
-                                    },
+                                    }
+                                ],
+                                "height_value": "match_parent",
+                                "width_value": "match_parent",
+                                "type_s": "Контейнер",
+                                "weight": "0"
+                            },
+                            {
+                                "type": "barcode",
+                                "orientation": "vertical",
+                                "height": "match_parent",
+                                "width": "match_parent",
+                                "Variable": "barcode",
+                                "type_s": "Штрихкод",
+                                "height_value": "match_parent",
+                                "width_value": "match_parent",
+                                "weight": "0"
+                            }
+                        ],
+                        "noConfirmation": true,
+                        "Handlers": [
+                            {
+                                "event": "onInput",
+                                "action": "run",
+                                "listener": "barcode",
+                                "type": "pythonscript",
+                                "method": "YmMgPSBoYXNoTWFwLmdldCgiYmFyY29kZSIpCmhhc2hNYXAucHV0KCJXZWJTb2NrZXRTZW5kIiwgJ3siZXZlbnQiOiJsb2dpbiIsICJiYXJjb2RlIjoiJyArIGJjICsgJyJ9JykK",
+                                "postExecute": "",
+                                "alias": ""
+                            }
+                        ],
+                        "hideBottomBarScreen": true
+                    },
+                    {
+                        "type": "Operation",
+                        "Name": "LoginSucsess",
+                        "Elements": [
+                            {
+                                "type": "LinearLayout",
+                                "orientation": "vertical",
+                                "height": "match_parent",
+                                "width": "match_parent",
+                                "Elements": [
                                     {
-                                        "type": "EditTextNumeric",
+                                        "type": "TextView",
                                         "orientation": "vertical",
                                         "height": "match_parent",
                                         "width": "match_parent",
-                                        "Value": "@user_id",
-                                        "Variable": "user_id",
-                                        "type_s": "Поле ввода число",
+                                        "Value": "@user_name",
+                                        "type_s": "Надпись",
                                         "weight": "0",
                                         "width_value": "match_parent",
                                         "height_value": "match_parent"
@@ -83,20 +99,36 @@
                                 "type_s": "Контейнер",
                                 "weight": "0"
                             }
-                        ],
-                        "noConfirmation": true,
-                        "Handlers": [
+                        ]
+                    },
+                    {
+                        "type": "Operation",
+                        "Name": "LoginError",
+                        "Elements": [
                             {
-                                "event": "onInput",
-                                "action": "run",
-                                "listener": "bt1",
-                                "type": "pythonscript",
-                                "method": "YmMgPSBoYXNoTWFwLmdldCgiYmFyY29kZSIpCmhhc2hNYXAucHV0KCJXZWJTb2NrZXRTZW5kIiwgJ3siZXZlbnQiOiJsb2dpbiIsICJiYXJjb2RlIjoiJyArIGJjICsgJyJ9JykK",
-                                "postExecute": "",
-                                "alias": ""
+                                "type": "LinearLayout",
+                                "orientation": "vertical",
+                                "height": "match_parent",
+                                "width": "match_parent",
+                                "Elements": [
+                                    {
+                                        "type": "TextView",
+                                        "orientation": "vertical",
+                                        "height": "match_parent",
+                                        "width": "match_parent",
+                                        "Value": "Ошибка входа",
+                                        "type_s": "Надпись",
+                                        "weight": "0",
+                                        "width_value": "match_parent",
+                                        "height_value": "match_parent"
+                                    }
+                                ],
+                                "height_value": "match_parent",
+                                "width_value": "match_parent",
+                                "type_s": "Контейнер",
+                                "weight": "0"
                             }
-                        ],
-                        "noScroll": true
+                        ]
                     }
                 ],
                 "login_screen": true
@@ -120,7 +152,7 @@
                 "action": "run",
                 "listener": "",
                 "type": "pythonscript",
-                "method": "aGFzaE1hcC5wdXQoIkNvbm5lY3RXZWJTb2NrZXQiLCJ3czovLzE5Mi4xNjguMTAwLjc6ODc2NSIpCmhhc2hNYXAucHV0KCJXU09uQ29ubmVjdEhhbmRsZXJzIixqc29uLmR1bXBzKFt7ImFjdGlvbiI6InJ1biIsInR5cGUiOiJweXRob24iLCJtZXRob2QiOiJ3c19jb25uZWN0In1dKSkKaGFzaE1hcC5wdXQoIldTT25NZXNzYWdlSGFuZGxlcnMiLGpzb24uZHVtcHMoW3siYWN0aW9uIjoicnVuIiwidHlwZSI6InB5dGhvbiIsIm1ldGhvZCI6IndzX2hhbmRsZXIifV0pKQo=",
+                "method": "aGFzaE1hcC5wdXQoIkNvbm5lY3RXZWJTb2NrZXQiLCJ3czovLzE5Mi4xNjguMTA0LjExNDo4NzY1IikKaGFzaE1hcC5wdXQoIldTT25Db25uZWN0SGFuZGxlcnMiLGpzb24uZHVtcHMoW3siYWN0aW9uIjoicnVuIiwidHlwZSI6InB5dGhvbiIsIm1ldGhvZCI6IndzX2Nvbm5lY3QifV0pKQpoYXNoTWFwLnB1dCgiV1NPbk1lc3NhZ2VIYW5kbGVycyIsanNvbi5kdW1wcyhbeyJhY3Rpb24iOiJydW4iLCJ0eXBlIjoicHl0aG9uIiwibWV0aG9kIjoid3NfaGFuZGxlciJ9XSkpCg==",
                 "postExecute": "",
                 "alias": ""
             }
@@ -145,7 +177,7 @@
         "PelicanInit": "",
         "Layouts": [],
         "uid": "4e9ba74217c642b7b6c6ad2e90efb220",
-        "PyHandlers": "aW1wb3J0IGpzb24KCmRlZiB3c19jb25uZWN0KGhhc2hNYXAsIF9maWxlcz1Ob25lLCBfZGF0YT1Ob25lKToKICAgIHJldHVybiBoYXNoTWFwICMg0L/QvtC60LAg0L/RgNC+0YHRgtC+INC90LjRh9C10LPQviDQvdC1INC00LXQu9Cw0LXQvAoKZGVmIHdzX2hhbmRsZXIoaGFzaE1hcCwgX2ZpbGVzPU5vbmUsIF9kYXRhPU5vbmUpOgogICAgbWVzc2FnZSA9IGhhc2hNYXAuZ2V0KCJXZWJTb2NrZXRNZXNzYWdlIikKICAgICNoYXNoTWFwLnB1dCgidG9hc3QiLCAiTmV3ICIrbWVzc2FnZSkKCiAgICBpZiBtZXNzYWdlOgogICAgICAgIGRhdGEgPSBqc29uLmxvYWRzKG1lc3NhZ2UpCiAgICAgICAgI2hhc2hNYXAucHV0KCJ0b2FzdCIsIHN0cihkYXRhKSkKCiAgICAgICAgIyDQn9GA0L7QstC10YDRj9C10LwsINGH0YLQviDRjdGC0L4g0YHQvtCx0YvRgtC40LUg0LLRhdC+0LTQsAogICAgICAgIGlmIGRhdGEuZ2V0KCJldmVudCIpID09ICJsb2dpbiI6CiAgICAgICAgICAgIGhhc2hNYXAucHV0KCJiYXJjb2RlIiwgZGF0YS5nZXQoImJhcmNvZGUiLCAiIikpCiAgICAgICAgICAgIGhhc2hNYXAucHV0KCJ1c2VyX2lkIiwgZGF0YS5nZXQoInVzZXJfaWQiLCAiIikpCiAgICAgICAgICAgIGhhc2hNYXAucHV0KCJ1c2VyX25hbWUiLCBkYXRhLmdldCgidXNlcl9uYW1lIiwgIiIpKQoKICAgICAgICAgICAgI2hhc2hNYXAucHV0KCJ0b2FzdCIsIGhhc2hNYXAuZ2V0KCJ1c2VyX25hbWUiKSkKICAgIGVsc2U6CiAgICAgICAgaGFzaE1hcC5wdXQoInRvYXN0IiwgItCh0L7QvtCx0YnQtdC90LjQtSBXZWJTb2NrZXRNZXNzYWdlINC+0YLRgdGD0YLRgdGC0LLRg9C10YIg0LjQu9C4INC/0YPRgdGC0L4iKQoKICAgIGhhc2hNYXAucHV0KCJSZWZyZXNoU2NyZWVuIiwgIlRydWUiKQoKICAgIHJldHVybiBoYXNoTWFwCg==",
+        "PyHandlers": "aW1wb3J0IGpzb24KCmRlZiB3c19jb25uZWN0KGhhc2hNYXAsIF9maWxlcz1Ob25lLCBfZGF0YT1Ob25lKToKICAgIHJldHVybiBoYXNoTWFwICMg0L/QvtC60LAg0L/RgNC+0YHRgtC+INC90LjRh9C10LPQviDQvdC1INC00LXQu9Cw0LXQvAoKZGVmIHdzX2hhbmRsZXIoaGFzaE1hcCwgX2ZpbGVzPU5vbmUsIF9kYXRhPU5vbmUpOgogICAgbWVzc2FnZSA9IGhhc2hNYXAuZ2V0KCJXZWJTb2NrZXRNZXNzYWdlIikKICAgIGhhc2hNYXAucHV0KCJ0b2FzdCIsICJtZXNzYWdlOiAiK21lc3NhZ2UpCgogICAgaWYgbWVzc2FnZToKICAgICAgICBkYXRhID0ganNvbi5sb2FkcyhtZXNzYWdlKQogICAgICAgIGhhc2hNYXAucHV0KCJ0b2FzdCIsICJzdHIoZGF0YSk6IitzdHIoZGF0YSkpCgogICAgICAgICMg0J/RgNC+0LLQtdGA0Y/QtdC8LCDRh9GC0L4g0Y3RgtC+INGB0L7QsdGL0YLQuNC1INCy0YXQvtC00LAKICAgICAgICBpZiBkYXRhLmdldCgiZXZlbnQiKSA9PSAibG9naW4iOgogICAgICAgICAgICBpZCA9IGludChkYXRhLmdldCgidXNlcl9pZCIsICIwIikpCiAgICAgICAgICAgIGhhc2hNYXAucHV0KCJiYXJjb2RlIiwgZGF0YS5nZXQoImJhcmNvZGUiLCAiIikpCiAgICAgICAgICAgIGhhc2hNYXAucHV0KCJ1c2VyX2lkIiwgZGF0YS5nZXQoInVzZXJfaWQiLCAwKSkKICAgICAgICAgICAgaGFzaE1hcC5wdXQoInVzZXJfbmFtZSIsIGRhdGEuZ2V0KCJ1c2VyX25hbWUiLCAiIikpCiAgICAgICAgICAgIGhhc2hNYXAucHV0KCJ0b2FzdCIsICJ1c2VyX25hbWU6ICIraGFzaE1hcC5nZXQoInVzZXJfbmFtZSIpKQogICAgICAgICAgICBpZiBpZCA+IDA6CiAgICAgICAgICAgICAgICBoYXNoTWFwLnB1dCgidG9hc3QiLCJMb2dpblN1Y3Nlc3MiKQogICAgICAgICAgICAgICAgaGFzaE1hcC5wdXQoIlNob3dTY3JlZW4iLCJMb2dpblN1Y3Nlc3MiKQoKICAgICAgICAgICAgICAgIGhhc2hNYXAucHV0KCJsYmxfdXNlcl9uYW1lIiwi0KPRgdGC0LDQvdC+0LLQu9C10L3QviDQsNGB0LjQvdGF0YDQvtC90L3QviIpCiAgICAKICAgICAgICAgICAgZWxzZToKICAgICAgICAgICAgICAgIGhhc2hNYXAucHV0KCJTaG93U2NyZWVuIiwgIkxvZ2luRXJyb3IiKSAgICAKICAgIGVsc2U6CiAgICAgICAgaGFzaE1hcC5wdXQoInRvYXN0IiwgItCh0L7QvtCx0YnQtdC90LjQtSBXZWJTb2NrZXRNZXNzYWdlINC+0YLRgdGD0YLRgdGC0LLRg9C10YIg0LjQu9C4INC/0YPRgdGC0L4iKQoKICAgIGhhc2hNYXAucHV0KCJSZWZyZXNoU2NyZWVuIiwgIiIpCgogICAgcmV0dXJuIGhhc2hNYXAK",
         "RunPython": true
     }
 }
