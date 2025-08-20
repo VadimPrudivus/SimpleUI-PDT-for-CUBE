@@ -18,7 +18,7 @@ def ws_handler(hashMap, _files=None, _data=None):
             hashMap.put("user_id", data.get("user_id", 0))
             hashMap.put("user_name", data.get("user_name", ""))
             hashMap.put("toast", hashMap.get("user_name"))
-            if id
+            if id:
                 hashMap.put("ShowScreen", "LoginSucsess")
             else
                 hashMap.put("ShowScreen", "LoginError")    
