@@ -19,7 +19,7 @@ def ws_handler(hashMap, _files=None, _data=None):
             hashMap.put("user_name", data.get("user_name", ""))
             hashMap.put("toast", "user_name: "+hashMap.get("user_name"))
             if id > 0:
-                hashMap.put("toast","LoginSucsess")
+                hashMap.put("toast","toast LoginSucsess")
                 hashMap.put("ShowScreen","LoginSucsess")
 
                 hashMap.put("lbl_user_name","Установлено асинхронно")
