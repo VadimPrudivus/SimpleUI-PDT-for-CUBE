@@ -20,7 +20,7 @@ def ws_handler(hashMap, _files=None, _data=None):
             hashMap.put("toast", hashMap.get("user_name"))
             if id:
                 hashMap.put("ShowScreen", "LoginSucsess")
-            else
+            else:
                 hashMap.put("ShowScreen", "LoginError")    
     else:
         hashMap.put("toast", "Сообщение WebSocketMessage отсутствует или пусто")
